@@ -9,7 +9,7 @@
     "deploy": "hexo generate && hexo algolia && hexo deploy"
   },
   "dependencies": {
-    "hexo": "^3.2.0",
+    "hexo": "^3.2.2",
     "hexo-algoliasearch": "0.2.1",
     "hexo-deployer-git": "0.2.0",
     "hexo-generator-archive": "^0.1.4",
