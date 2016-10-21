@@ -18,4 +18,5 @@ gallery:
     - image-3.jpg "New York"
     - https://example.com/orignal.jpg https://example.com/thumbnail.jpg "Sidney"
 comments: true
+mathjax: false
 ---

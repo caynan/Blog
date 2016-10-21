@@ -157,6 +157,10 @@
             <meta class="swiftype" name="image" data-type="enum" content="<%= photo %>" />
         <% }) %>
     <% } %>
+    <!-- ADD MATHJAX SUPPORT -->
+    <% if (page.mathjax){ %>
+      <%- partial('mathjax') %>
+    <% } %>
     <!--STYLES-->
     <%- css('assets/css/font-awesome.css') %>
     <%- css('assets/css/jquery.fancybox.css') %>
