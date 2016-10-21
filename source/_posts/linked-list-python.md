@@ -1,13 +1,13 @@
 ---
-title: linked-list-python
+title: Linked List in Python
 tags: 'foo, bar'
 disqusIdentifier: linked-list-python
 keywords:
   - data structure
   - linked list
   - python
-thumbnailImage: image-1.png
-thumbnailImagePosition: right
+thumbnailImage: https://unsplash.com/photos/oMpAz-DN-9I/download
+thumbnailImagePosition: left
 autoThumbnailImage: 'yes'
 metaAlignment: center
 coverImage: image-2.png
@@ -15,24 +15,29 @@ coverCaption: A beautiful sunrise
 coverMeta: in
 coverSize: full
 comments: true
+mathjax: true
 date: 2016-10-21 01:38:48
 ---
 
+Today, we're going to implement a linked list in python
+
+<!-- more -->
+
 ### Overview
 
-> In computer science, a linked list is a data structure consisting of a group
-> of nodes which together represent a sequence. Under the simplest form, each
-> node is composed of a data and a reference (in other words, a link) to the
-> next node in the sequence; more complex variants add additional links. This
-> structure allows for efficient insertion or removal of elements from any
-> position in the sequence.
+{% blockquote Wikipedia http://en.wikipedia.org/wiki/Linked_list Linked List%}
+In computer science, a linked list is a data structure consisting of a group
+of nodes which together represent a sequence. Under the simplest form, each
+node is composed of a data and a reference (in other words, a link) to the
+next node in the sequence; more complex variants add additional links. This
+structure allows for efficient insertion or removal of elements from any
+position in the sequence.  
+{% endblockquote %}
 
 
-This is the definition we could find at
-[Wikipedia](http://en.wikipedia.org/wiki/Linked_list).  Linked Lists are really
-simple data structures, we only have to remember when solving problems that
-involve them, to notice if we're using singly linked lists (only have links to
-the next node) or doubly linked lists (links for previous and next nodes).
+Linked Lists are really simple data structures, we only have to remember when solving problems that
+involve them, to notice if we're using singly linked lists (only have links to the next node) or
+doubly linked lists (links for previous and next nodes).
 
 ### CODE!
 
@@ -46,23 +51,19 @@ container for the data, and `LinkedList` that is going to provide us with
 different methods to manipulate the data structure.
 
 {% codeblock lang:python  %}
-	class _Node(object):
-		def __init__(self, data=None, next=None):
-			self.data = data
-			self.next = next
+class _Node(object):
+   def __init__(self, data=None, next=None):
+      self.data = data
+      self.next = next
 
-		def __str__(self):
-			return str(self.data)
-
+   def __str__(self):
+      return str(self.data)
 {% endcodeblock  %}
 
 There is only two things to note on our implementation of **Node**, first we're
 declaring it as a protected class, eventhough Python don't have a true
-protected notion, it's more of a
-[notation](https://google-styleguide.googlecode.com/svn/trunk/pyguide.html#Naming).
-The other interesting thing is that we're rewriting the `__str__`
-method from object, so every time we print our Nodes we're going to see the
-data they store, which in my opinion makes more sense.
+protected notion, it's more of a [notation](https://google-styleguide.googlecode.com/svn/trunk/pyguide.html#Naming), but I'm digressing here, the other interesting thing is that we're rewriting the `__str__`
+method from object, Node's superclass, so every time we print our Nodes we're going to see the data they store, which in my opinion makes more sense.
 
 Now let's see our biggest class, **LinkedList**:
 
@@ -87,14 +88,13 @@ class LinkedList(object):
       string_to_return.append('%s ' % node)
       node = node.next
 
-return ''.join(string_to_return).strip()
+      return ''.join(string_to_return).strip()
 {% endcodeblock %}
 
-There are two things worth noting in this part of our class, first we're
-rewriting the method `__len__` from object, which permit us call `len` in our
-LinkedList, also note we're using a list to accumulate the string in the
-`_toString` method, this is to avoid waste of space, since strings are
-immutable in python, using something like `+=` will result in many objects.
+There are two things worth noting in this part of our class, first we're rewriting the method
+`__len__` from object, which permit us call `len` in our LinkedList, also note we're using a list
+to accumulate the string in the `_toString` method, this is to avoid waste of space, since strings
+are immutable in python, using something like `+=` will result in many objects.
 
 {% codeblock lang:python %}
 def add(self, data):
@@ -112,10 +112,8 @@ def add(self, data):
             node = node.next
 {% endcodeblock %}
 
-
-Our add method, is pretty straight forward, if our Linked List is empty (head
-is None) we create a new node as head. If not, we find the tail of list, and
-insert our new Node after it.
+Our add method, is pretty straight forward, if our Linked List is empty (head is None) we create a
+new node as head. If not, we find the tail of list, and insert our new Node after it.
 
 {% codeblock lang:python %}
 def index(self, x):
@@ -125,7 +123,9 @@ def index(self, x):
       else:
          node = node.next
    raise Exception('Item Not Found!)
+{% endcodeblock %}
 
+{% codeblock lang:python %}
 def remove(self, x):
    # case is empty
    if self.head is None:
@@ -147,23 +147,8 @@ def remove(self, x):
             node = node.next
 {% endcodeblock %}
 
-We finally get to our final methods, `index`, which provide us the index of a
-given Node, if it exists, and `remove` which as the name says we're removing
-some node given the data it contains.
+We finally get to our final methods, `index`, which provide us the index of a given Node, if it exists, and `remove` which as the name says remove some node given the data it contains.
 
 ### The End
 
-Well folks that is it, as an exercise try to implement a doubly linked list,
-without looking to the code here, so you could be sure that you're truly
-understanding it, and not simply rewriting.
-
-{% tabbed_codeblock example http://example.com %}
-      <!-- tab js -->
-          var test = 'test';
-      <!-- endtab -->
-      <!-- tab css -->
-          .btn {
-              color: red;
-          }
-      <!-- endtab -->
-  {% endtabbed_codeblock %}
+Well folks that was it, as an exercise try to implement a doubly linked list, without looking to the code here, so you could make sure that you're truly understanding linked lists, and not simply rewriting the code.

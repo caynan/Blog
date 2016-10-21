@@ -7,7 +7,7 @@ keywords:
 - javascript
 - hexo
 thumbnailImage: image-1.png
-thumbnailImagePosition: right
+thumbnailImagePosition: left
 autoThumbnailImage: yes
 metaAlignment: center
 coverImage: image-2.png
