@@ -10,8 +10,8 @@ thumbnailImage: https://res.cloudinary.com/caynan/image/upload/v1477046788/train
 thumbnailImagePosition: left
 autoThumbnailImage: 'yes'
 metaAlignment: center
-coverImage: image-2.png
-coverCaption: A beautiful sunrise
+coverImage: https://res.cloudinary.com/caynan/image/upload/v1477046788/train-cover_min_z7lwml.jpg
+coverCaption: Train by [Marina Molineiro](https://unsplash.com/search/train?photo=kRqA1yFZp1s)
 coverMeta: in
 coverSize: full
 comments: true
