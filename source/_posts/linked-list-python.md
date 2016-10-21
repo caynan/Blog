@@ -6,12 +6,11 @@ keywords:
   - data structure
   - linked list
   - python
-thumbnailImage: https://unsplash.com/photos/oMpAz-DN-9I/download
+thumbnailImage: https://res.cloudinary.com/caynan/image/upload/v1477046788/train-cover_min_z7lwml.jpg
 thumbnailImagePosition: left
 autoThumbnailImage: 'yes'
 metaAlignment: center
-coverImage: image-2.png
-coverCaption: A beautiful sunrise
+coverImage: https://res.cloudinary.com/caynan/image/upload/v1477046788/train-cover_min_z7lwml.jpg
 coverMeta: in
 coverSize: full
 comments: true
@@ -152,3 +151,6 @@ We finally get to our final methods, `index`, which provide us the index of a gi
 ### The End
 
 Well folks that was it, as an exercise try to implement a doubly linked list, without looking to the code here, so you could make sure that you're truly understanding linked lists, and not simply rewriting the code.
+
+
+##### image by [Marina Molineiro](https://unsplash.com/search/train?photo=kRqA1yFZp1s)
