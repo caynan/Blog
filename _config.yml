@@ -12,11 +12,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-<<<<<<< HEAD
-url: http://localhost:4000
-=======
 url: https://www.caynan.org
->>>>>>> 52b8a56677ac1dd57fd45dbac0a3e4f836c0bcf7
 root: /
 permalink: :year/:title/
 permalink_defaults:
@@ -38,13 +34,8 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-<<<<<<< HEAD
-post_asset_folder: false
-relative_link: true
-=======
 post_asset_folder: true
 relative_link: false
->>>>>>> 52b8a56677ac1dd57fd45dbac0a3e4f836c0bcf7
 future: true
 highlight:
   enable: true
@@ -90,23 +81,6 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: tranquilpeak
-
-# Search
-## Algolia info for indexing page
-algolia:
-  appId: "DD4S9E77IO"
-  apiKey: "1cad5715a3dee07bb0db92e7778001c2"
-  adminApiKey: "1f40bdea09aabf9433fbae3ee437c1dd"
-  chunkSize: 5000
-  indexName: "caynan-org"
-  fields:
-    - title
-    - tags
-    - slug
-    - excerpt
-    - excerpt:strip
-    - photos
-    - gallery
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
