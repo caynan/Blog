@@ -6,7 +6,7 @@ keywords:
   - data structure
   - linked list
   - python
-thumbnailImage: https://unsplash.com/photos/oMpAz-DN-9I/download
+thumbnailImage: https://res.cloudinary.com/caynan/image/upload/v1477046788/train-cover_min_z7lwml.jpg
 thumbnailImagePosition: left
 autoThumbnailImage: 'yes'
 metaAlignment: center
