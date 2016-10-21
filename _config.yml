@@ -82,23 +82,6 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: tranquilpeak
 
-# Search
-## Algolia info for indexing page
-algolia:
-  appId: "DD4S9E77IO"
-  apiKey: "1cad5715a3dee07bb0db92e7778001c2"
-  adminApiKey: "1f40bdea09aabf9433fbae3ee437c1dd"
-  chunkSize: 5000
-  indexName: "caynan-org"
-  fields:
-    - title
-    - tags
-    - slug
-    - excerpt
-    - excerpt:strip
-    - photos
-    - gallery
-
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
