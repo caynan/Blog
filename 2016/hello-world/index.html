@@ -9,7 +9,11 @@
     <title>Hello World - Caynan</title>
     <meta name="author" content="Caynan Sousa">
     
+        <meta name="keywords" content="caynan,caynan sousa,python,go,golang,learning,code competition,">
     
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="../../atom.xml">
     
     <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
 Quick">
@@ -30,6 +34,8 @@ Quick">
         
     
     
+        <meta property="og:image" content="https://www.gravatar.com/avatar/8cd2bcac678a3c58c40e432938d78b86?s=640"/>
+    
     
     
     
@@ -40,6 +46,17 @@ Quick">
     <link rel="stylesheet" href="../../assets/css/tranquilpeak.css">
     <!--STYLES END-->
     
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-57968478-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
     
 </head>
 
@@ -48,8 +65,6 @@ Quick">
             <!-- Define author's picture -->
 
 
-    
-
 <header id="header" data-behavior="5">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
@@ -57,9 +72,11 @@ Quick">
     </div>
     
         
-            <a  class="header-right-picture "
-                href="#about">
+            <a  class="header-right-icon open-algolia-search"
+                href="#search">
         
+        
+            <i class="fa fa-lg fa-search"></i>
         
         </a>
     
@@ -68,8 +85,21 @@ Quick">
             <!-- Define author's picture -->
 
 
+    
+
 <nav id="sidebar" data-behavior="5">
     <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a href="../../#about">
+                    <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/8cd2bcac678a3c58c40e432938d78b86?s=110" alt="Author&#39;s picture"/>
+                </a>
+                <h4 class="sidebar-profile-name">Caynan Sousa</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>He has been working on his <a href="http://norvig.com/21-days.html">10.000 hours</a> for the past 3 years. Has experience with data analysis, quality assurance (QA) and web development. Has an aspiration of been the mythical professional known as Data Scientist. When not talking about himself in the 3rd person, he can be found <a href="https://github.com/caynan">programming</a> or <a href="https://goodreads.com/caynan">reading</a> a book.</p>
+</h5>
+                
+            </div>
         
         
             <ul class="sidebar-buttons">
@@ -272,6 +302,12 @@ Quick">
             </a>
         </li>
         
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
         <li class="post-action">
             
                 <a class="post-action-btn btn btn--default" href="#">
@@ -284,6 +320,10 @@ Quick">
 
 
         
+            
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
             
         
     </div>
@@ -343,6 +383,12 @@ Quick">
             </a>
         </li>
         
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
         <li class="post-action">
             
                 <a class="post-action-btn btn btn--default" href="#">
@@ -381,22 +427,26 @@ Quick">
         
 
 
+    
+
 <div id="about">
     <div id="about-card">
         <div id="about-btn-close">
             <i class="fa fa-remove"></i>
         </div>
         
+            <img id="about-card-picture" src="https://www.gravatar.com/avatar/8cd2bcac678a3c58c40e432938d78b86?s=110" alt="Author&#39;s picture"/>
+        
             <h4 id="about-card-name">Caynan Sousa</h4>
         
-            <div id="about-card-bio"><p>author.bio</p>
+            <div id="about-card-bio"><p>He has been working on his <a href="http://norvig.com/21-days.html">10.000 hours</a> for the past 3 years. Has experience with data analysis, quality assurance (QA) and web development. Has an aspiration of been the mythical professional known as Data Scientist. When not talking about himself in the 3rd person, he can be found <a href="https://github.com/caynan">programming</a> or <a href="https://goodreads.com/caynan">reading</a> a book.</p>
 </div>
         
         
             <div id="about-card-job">
                 <i class="fa fa-briefcase"></i>
                 <br/>
-                <p>author.job</p>
+                <p>Unicorn Trainee</p>
 
             </div>
         
@@ -470,8 +520,32 @@ Quick">
 <!--SCRIPTS END-->
 
     
+        <script>
+             var disqus_config = function () {
+                 this.page.url = 'http://localhost:4000/2016/hello-world/';
+                 
+                    this.page.identifier = '2016/hello-world/';
+                 
+             };
+            (function() {
+                var d = document, s = d.createElement('script');
+                var disqus_shortname = 'caynan-org';
+                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+    
 
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment-with-locales.min.js"></script>
+    <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <script>
+        var algoliaClient = algoliasearch('DD4S9E77IO', '1cad5715a3dee07bb0db92e7778001c2');
+        var algoliaIndex = algoliaClient.initIndex('caynan-org');
+    </script>
 
     </body>
 </html>

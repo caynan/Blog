@@ -1,0 +1,618 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Caynan">
+    <title>Linked List in Python - Caynan</title>
+    <meta name="author" content="Caynan Sousa">
+    
+        <meta name="keywords" content="caynan,caynan sousa,python,go,golang,learning,code competition,data structure,linked list,python">
+    
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="../../atom.xml">
+    
+    <meta name="description" content="Today, we’re going to implement a linked list in python">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Linked List in Python">
+<meta property="og:url" content="http://localhost:4000/2016/linked-list-python/index.html">
+<meta property="og:site_name" content="Caynan">
+<meta property="og:description" content="Today, we’re going to implement a linked list in python">
+<meta property="og:updated_time" content="2016-10-21T07:15:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linked List in Python">
+<meta name="twitter:description" content="Today, we’re going to implement a linked list in python">
+<meta name="twitter:creator" content="@CaynanSousa">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://www.gravatar.com/avatar/8cd2bcac678a3c58c40e432938d78b86?s=640"/>
+    
+    
+        <meta property="og:image" content="https://unsplash.com/photos/oMpAz-DN-9I/download"/>
+        <meta class="swiftype" name="image" data-type="enum" content="https://unsplash.com/photos/oMpAz-DN-9I/download" />
+    
+    
+        <meta property="og:image" content="http://localhost:4000image-2.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://localhost:4000image-2.png" />
+    
+    
+    <!-- ADD MATHJAX SUPPORT -->
+    
+      <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="../../assets/css/style-i6csxyww5nbhmiztmz5jzst2hxbbb9ze4yz7m70ilozwqzjdm3qzzuuaiqep.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-57968478-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+<header id="header" data-behavior="5">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="../../ ">Caynan</a>
+    </div>
+    
+        
+            <a  class="header-right-icon open-algolia-search"
+                href="#search">
+        
+        
+            <i class="fa fa-lg fa-search"></i>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+    
+
+<nav id="sidebar" data-behavior="5">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a href="../../#about">
+                    <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/8cd2bcac678a3c58c40e432938d78b86?s=110" alt="Author&#39;s picture"/>
+                </a>
+                <h4 class="sidebar-profile-name">Caynan Sousa</h4>
+                
+                    <h5 class="sidebar-profile-bio">He has been working on his [10.000 hours](http://norvig.com/21-days.html) for the past 3 years. Has experience with data analysis, quality assurance (QA) and web development. Has an aspiration of been the mythical professional known as Data Scientist. When not talking about himself in the 3rd person, he can be found [programming](https://github.com/caynan) or [reading](https://goodreads.com/caynan) a book.</h5>
+                
+            </div>
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="../../ "
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link open-algolia-search"
+                             href="#search"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="../../all-categories"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="../../all-archives"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="#about"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-user-secret"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://github.com/caynan" target="_blank">
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://twitter.com/CaynanSousa" target="_blank">
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+                        <span class="sidebar-button-desc">Twitter</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://www.linkedin.com/in/caynan" target="_blank">
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="../../atom.xml"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+        <div class="post-header-cover
+                    text-center
+                    post-header-cover--full"
+             style="background-image:url('image-2.png');"
+             data-behavior="5">
+            
+                <div class="post-header main-content-wrap text-center">
+    
+        <h1 class="post-title" itemprop="headline">
+            Linked List in Python
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-10-21T01:38:48-03:00">
+	
+		    Oct 21, 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+            
+        </div>
+
+            <div id="main" data-behavior="5"
+                 class="hasCover
+                        hasCoverMetaIn
+                        hasCoverCaption">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+        <span class="post-header-cover-caption caption">A beautiful sunrise</span>
+    
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>Today, we’re going to implement a linked list in python</p>
+<a id="more"></a>
+<h3 id="overview">Overview</h3>
+<blockquote>In computer science, a linked list is a data structure consisting of a group
+of nodes which together represent a sequence. Under the simplest form, each
+node is composed of a data and a reference (in other words, a link) to the
+next node in the sequence; more complex variants add additional links. This
+structure allows for efficient insertion or removal of elements from any
+position in the sequence.  <footer><strong>Wikipedia</strong><cite><a href="http://en.wikipedia.org/wiki/Linked_list" target="_blank" rel="external">Linked List</a></cite></footer></blockquote>
+<p>Linked Lists are really simple data structures, we only have to remember when solving problems that involve them, to notice if we’re using singly linked lists (only have links to the next node) or doubly linked lists (links for previous and next nodes).</p>
+<h3 id="code">CODE!</h3>
+<p>Enough talking let’s start coding. First you should note the elements that a Linked List have, I see two of them, a Node and obviously the Linked List in itself, which if you think we could represent as a Node, we only need the Head of a Linked List to represent it.</p>
+<p>So let’s create two classes in python, <code>Node</code> that is going to serve as a container for the data, and <code>LinkedList</code> that is going to provide us with different methods to manipulate the data structure.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">_Node</span><span class="params">(object)</span>:</span></div><div class="line">   <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, data=None, next=None)</span>:</span></div><div class="line">      self.data = data</div><div class="line">      self.next = next</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></div><div class="line">      <span class="keyword">return</span> str(self.data)</div></pre></td></tr></table></figure>
+<p>There is only two things to note on our implementation of <strong>Node</strong>, first we’re declaring it as a protected class, eventhough Python don’t have a true protected notion, it’s more of a <a href="https://google-styleguide.googlecode.com/svn/trunk/pyguide.html#Naming" target="_blank" rel="external">notation</a>, but I’m digressing here, the other interesting thing is that we’re rewriting the <code>__str__</code> method from object, Node’s superclass, so every time we print our Nodes we’re going to see the data they store, which in my opinion makes more sense.</p>
+<p>Now let’s see our biggest class, <strong>LinkedList</strong>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">LinkedList</span><span class="params">(object)</span>:</span></div><div class="line">   <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">      self.length = <span class="number">0</span></div><div class="line">      self.head = <span class="keyword">None</span></div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></div><div class="line">      <span class="keyword">return</span> self._toString()</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></div><div class="line">      <span class="keyword">return</span> self.length</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">def</span> <span class="title">_toString</span><span class="params">(self)</span>:</span></div><div class="line">      node = self.head</div><div class="line">      string_to_return = []</div><div class="line"></div><div class="line">      <span class="comment"># Print the value of the nodes</span></div><div class="line">      <span class="keyword">while</span> node:</div><div class="line">      string_to_return.append(<span class="string">'%s '</span> % node)</div><div class="line">      node = node.next</div><div class="line"></div><div class="line">      <span class="keyword">return</span> <span class="string">''</span>.join(string_to_return).strip()</div></pre></td></tr></table></figure>
+<p>There are two things worth noting in this part of our class, first we’re rewriting the method <code>__len__</code> from object, which permit us call <code>len</code> in our LinkedList, also note we’re using a list to accumulate the string in the <code>_toString</code> method, this is to avoid waste of space, since strings are immutable in python, using something like <code>+=</code> will result in many objects.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(self, data)</span>:</span></div><div class="line">   <span class="keyword">if</span> self.head <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">      self.head = _Node(data=data)</div><div class="line">      self.length += <span class="number">1</span></div><div class="line">   <span class="keyword">else</span>:</div><div class="line">      node = self.head</div><div class="line">      <span class="keyword">while</span> node:</div><div class="line">         <span class="keyword">if</span> node.next <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">            node.next = _Node(data=data)</div><div class="line">            self.length += <span class="number">1</span></div><div class="line">            <span class="keyword">break</span></div><div class="line">         <span class="keyword">else</span>:</div><div class="line">            node = node.next</div></pre></td></tr></table></figure>
+<p>Our add method, is pretty straight forward, if our Linked List is empty (head is None) we create a new node as head. If not, we find the tail of list, and insert our new Node after it.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">(self, x)</span>:</span></div><div class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> range(self.length):</div><div class="line">      <span class="keyword">if</span> node.data = x:</div><div class="line">         <span class="keyword">return</span> i</div><div class="line">      <span class="keyword">else</span>:</div><div class="line">         node = node.next</div><div class="line">   <span class="keyword">raise</span> Exception(<span class="string">'Item Not Found!)</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">remove</span><span class="params">(self, x)</span>:</span></div><div class="line">   <span class="comment"># case is empty</span></div><div class="line">   <span class="keyword">if</span> self.head <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">      <span class="keyword">raise</span> Exception(<span class="string">'Trying to remove from empty list'</span>)</div><div class="line">   <span class="comment"># case is head</span></div><div class="line">   <span class="keyword">elif</span> self.head.data == x:</div><div class="line">      self.head = <span class="keyword">None</span></div><div class="line">      self.length -= <span class="number">1</span></div><div class="line">   <span class="comment"># other cases</span></div><div class="line">   <span class="keyword">else</span>:</div><div class="line">      node = self.head</div><div class="line">      <span class="keyword">while</span> node:</div><div class="line">         <span class="keyword">if</span> node.next <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">raise</span> Exception(<span class="string">'Item Not Found!'</span>)</div><div class="line">         <span class="keyword">elif</span> node.next.data == x:</div><div class="line">            node.next = node.next.next</div><div class="line">            self.length -= <span class="number">1</span></div><div class="line">         <span class="keyword">else</span>:</div><div class="line">            node = node.next</div></pre></td></tr></table></figure>
+<p>We finally get to our final methods, <code>index</code>, which provide us the index of a given Node, if it exists, and <code>remove</code> which as the name says remove some node given the data it contains.</p>
+<h3 id="the-end">The End</h3>
+<p>Well folks that was it, as an exercise try to implement a doubly linked list, without looking to the code here, so you could make sure that you’re truly understanding linked lists, and not simply rewriting the code.</p>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="../../tags/foo-bar/">foo, bar</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://localhost:4000/2016/linked-list-python/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2016/linked-list-python/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://localhost:4000/2016/linked-list-python/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Caynan Sousa. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://localhost:4000/2016/linked-list-python/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2016/linked-list-python/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://localhost:4000/2016/linked-list-python/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://localhost:4000/2016/linked-list-python/">
+                <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2016/linked-list-python/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://localhost:4000/2016/linked-list-python/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+            
+        </div>
+        
+
+
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="https://www.gravatar.com/avatar/8cd2bcac678a3c58c40e432938d78b86?s=110" alt="Author&#39;s picture"/>
+        
+            <h4 id="about-card-name">Caynan Sousa</h4>
+        
+            <div id="about-card-bio">He has been working on his [10.000 hours](http://norvig.com/21-days.html) for the past 3 years. Has experience with data analysis, quality assurance (QA) and web development. Has an aspiration of been the mythical professional known as Data Scientist. When not talking about himself in the 3rd person, he can be found [programming](https://github.com/caynan) or [reading](https://goodreads.com/caynan) a book.</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                Unicorn Trainee
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                Omnipresent
+            </div>
+        
+    </div>
+</div>
+
+        <div id="algolia-search-modal" class="modal-container">
+    <div class="modal">
+        <div class="modal-header">
+            <span class="close-button"><i class="fa fa-close"></i></span>
+            <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+                <span class="searchby-algolia-text text-color-light text-small">by</span>
+                <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+            </a>
+            <i class="search-icon fa fa-search"></i>
+            <form id="algolia-search-form">
+                <input type="text" id="algolia-search-input" name="search"
+                    class="form-control input--large search-input" placeholder="Search "
+                    autofocus="autofocus"/>
+            </form>
+        </div>
+        <div class="modal-body">
+            <div class="no-result text-color-light text-center">no post found</div>
+            <div class="results">
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://localhost:4000/2016/linked-list-python/">
+                            <img class="media-image" src="https://unsplash.com/photos/oMpAz-DN-9I/download" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://localhost:4000/2016/linked-list-python/">
+                            <h3 class="media-heading">Linked List in Python</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Oct 21, 2016
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>Today, we’re going to implement a linked list in python</p></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+            </div>
+        </div>
+        <div class="modal-footer">
+            <p class="results-count text-medium"
+                data-message-zero="no post found"
+                data-message-one="1 post found"
+                data-message-other="{n} posts found">
+                1 post found
+            </p>
+        </div>
+    </div>
+</div>
+        
+<div id="cover" style="background-image:url('https://res.cloudinary.com/caynan/image/upload/q_auto:good/v1477017580/sky-cover2_zumzjv.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="../../assets/js/script-whripzzfaelviib8hwgpvaewwm9v1be9lzxj4wcalaiu3bvuwmyiohlrzhwu.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+        <script>
+             var disqus_config = function () {
+                 this.page.url = 'http://localhost:4000/2016/linked-list-python/';
+                 
+                    this.page.identifier = 'linked-list-python';
+                 
+             };
+            (function() {
+                var d = document, s = d.createElement('script');
+                var disqus_shortname = 'caynan-org';
+                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+    
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment-with-locales.min.js"></script>
+    <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <script>
+        var algoliaClient = algoliasearch('DD4S9E77IO', '1cad5715a3dee07bb0db92e7778001c2');
+        var algoliaIndex = algoliaClient.initIndex('caynan-org');
+    </script>
+
+    </body>
+</html>
