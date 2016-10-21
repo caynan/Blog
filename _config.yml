@@ -88,3 +88,21 @@ deploy:
   type: git
   repo: https://github.com/caynan/Blog
   branch: gh-pages
+
+# Search
+## Algolia info for indexing page
+algolia:
+  appId: "DD4S9E77IO"
+  apiKey: "1cad5715a3dee07bb0db92e7778001c2"
+  adminApiKey: "1f40bdea09aabf9433fbae3ee437c1dd"
+  indexName: "caynan-org"
+  chunkSize: 5000
+  fields:
+    - title
+    - date
+    - permalink
+    - thumbnailImageUrl
+    - tags
+    - categories
+    - excerpt
+    - excerpt:strip
