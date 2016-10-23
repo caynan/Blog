@@ -1,23 +1,28 @@
----
 title: Linked List in Python
-tags: 'foo, bar'
+tags:
+  - python
+  - data structure
+  - ''
 disqusIdentifier: linked-list-python
 keywords:
   - data structure
   - linked list
   - python
-thumbnailImage: https://res.cloudinary.com/caynan/image/upload/v1477046788/train-cover_min_z7lwml.jpg
+thumbnailImage: >-
+  https://res.cloudinary.com/caynan/image/upload/v1477046788/train-cover_min_z7lwml.jpg
 thumbnailImagePosition: left
 autoThumbnailImage: 'yes'
 metaAlignment: center
-coverImage: https://res.cloudinary.com/caynan/image/upload/v1477046788/train-cover_min_z7lwml.jpg
+coverImage: >-
+  https://res.cloudinary.com/caynan/image/upload/v1477046788/train-cover_min_z7lwml.jpg
 coverMeta: in
 coverSize: full
 comments: true
 mathjax: true
-date: 2016-10-21 01:38:48
+categories: []
+author: Caynan Sousa
+date: 2016-10-21 01:38:00
 ---
-
 Today, we're going to implement a linked list in python
 
 <!-- more -->
@@ -152,5 +157,4 @@ We finally get to our final methods, `index`, which provide us the index of a gi
 
 Well folks that was it, as an exercise try to implement a doubly linked list, without looking to the code here, so you could make sure that you're truly understanding linked lists, and not simply rewriting the code.
 
-
-##### image by [Marina Molineiro](https://unsplash.com/search/train?photo=kRqA1yFZp1s)
+image by [Marina Molineiro](https://unsplash.com/search/train?photo=kRqA1yFZp1s)
