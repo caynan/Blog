@@ -1,27 +1,23 @@
+---
 title: Linked List in Python
 tags:
-  - python
-  - data structure
-  - ''
+   - python
+   - data structure
 disqusIdentifier: linked-list-python
 keywords:
-  - data structure
-  - linked list
-  - python
-thumbnailImage: >-
-  https://res.cloudinary.com/caynan/image/upload/v1477046788/train-cover_min_z7lwml.jpg
+   - data structure
+   - linked list
+   - python
+thumbnailImage: train-cover-thumb.jpg
 thumbnailImagePosition: left
 autoThumbnailImage: 'yes'
 metaAlignment: center
-coverImage: >-
-  https://res.cloudinary.com/caynan/image/upload/v1477046788/train-cover_min_z7lwml.jpg
+coverImage: train-cover.jpg
 coverMeta: in
 coverSize: full
 comments: true
-mathjax: true
-categories: []
-author: Caynan Sousa
-date: 2016-10-21 01:38:00
+mathjax: false
+date: 2016-10-23 22:13:31
 ---
 Today, we're going to implement a linked list in python
 
