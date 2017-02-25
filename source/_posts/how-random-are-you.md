@@ -53,7 +53,7 @@ Without further ado...
     fill: #000;
   }
 </style>
-<script src="http://d3js.org/d3.v3.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
 
 <div id="chart"></div>
     <script type="text/javascript">
