@@ -17,7 +17,9 @@ comments: true
 mathjax: false
 date: 2017-02-24 21:26:02
 ---
+How random do you really think you are?
 
+<!-- more -->
 
 This chart is an improvement on a colleague work, which can be found [here](https://arthurgca.github.io/visualizacaodados/#).
 
