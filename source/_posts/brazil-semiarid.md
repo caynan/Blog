@@ -17,6 +17,10 @@ comments: true
 mathjax: false
 date: 2017-03-20 21:26:02
 ---
+Let's do some data visualizations on the Brazilian Semiarid!!
+
+<!-- more -->
+
 {% raw %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.7.3/d3.js"></script>
     <script src="https://d3js.org/d3-color.v1.min.js"></script>
