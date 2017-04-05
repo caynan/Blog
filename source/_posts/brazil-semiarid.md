@@ -101,7 +101,6 @@ the number of water supply stops during the year of 2015 the bluer the city is a
   </script>
 {% endraw %}
 
-
 ## Regions with the highest demand for water
 
 Let's see where is concentrated the highest number of people with water supply, so we can see which regions has the highest demand for water. We're using a color scale from light blue to dark blue, the higher the demand the darker is the shade of blue. Grey cities show are cities on which we don't have data.
